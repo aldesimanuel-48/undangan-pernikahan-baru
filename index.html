@@ -460,6 +460,7 @@ document.querySelectorAll(".fade").forEach(el => {
   observer.observe(el);
 });
  
+
 function kirimUcapan() {
   const nama = document.getElementById("namaTamu").value.trim();
   const ucapan = document.getElementById("ucapanTamu").value.trim();
@@ -471,40 +472,45 @@ function kirimUcapan() {
 
   const url = "https://script.google.com/macros/s/AKfycbx9IDiBKgRficPq5rGCZO89eX7DX0RZ1-9mTUR3x-hbWRYITAGLY1uUkM3EsuSarqyeDw/exec";
 
-  const data = new URLSearchParams();
-  data.append("nama", nama);
-  data.append("ucapan", ucapan);
+  let iframe = document.getElementById("kirimTamuFrame");
 
-  fetch(url, {
-    method: "POST",
-    mode: "no-cors",
-    body: data
-  });
+  if (!iframe) {
+    iframe = document.createElement("iframe");
+    iframe.name = "kirimTamuFrame";
+    iframe.id = "kirimTamuFrame";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
+  }
+
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = url;
+  form.target = "kirimTamuFrame";
+  form.style.display = "none";
+
+  const inputNama = document.createElement("input");
+  inputNama.name = "nama";
+  inputNama.value = nama;
+
+  const inputUcapan = document.createElement("input");
+  inputUcapan.name = "ucapan";
+  inputUcapan.value = ucapan;
+
+  form.appendChild(inputNama);
+  form.appendChild(inputUcapan);
+  document.body.appendChild(form);
+  form.submit();
+  form.remove();
 
   const pesan = "Shalom Aldes & Vina ❤️\n\nNama: " + nama +
     "\nUcapan dan Doa: " + ucapan;
 
-  const nomor = "6281354632767";
-
   window.open(
-    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan),
-    "_blank"
-  );
-
-  alert("Ucapan sedang dikirim dan disimpan. Silakan lanjutkan mengirim melalui WhatsApp.");
-}
-
-
-  const pesan = "Shalom Aldes & Vina ❤️\n\nNama: " + nama +
-    "\nUcapan dan Doa: " + ucapan;
-
-  const nomor = "6281354632767";
-
-  window.open(
-    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan),
+    "https://wa.me/6281354632767?text=" + encodeURIComponent(pesan),
     "_blank"
   );
 }
+
 </script>
 
 </body>
