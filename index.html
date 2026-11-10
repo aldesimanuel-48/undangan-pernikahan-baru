@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Aldes & Vina</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:Georgia,serif;
+background:#f8f0df;
+color:#39251d;
+overflow-x:hidden;
+}
+:root{
+--gold:#c69b48;
+--maroon:#681f29;
+--cream:#f8f0df;
+}
+section{
+padding:90px 22px;
+text-align:center;
+position:relative;
+}
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(#271512a8,#271512bd),
+url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200');
+background-size:cover;
+background-position:center;
+color:white;
+}
+.ornament{
+color:var(--gold);
+font-size:30px;
+letter-spacing:8px;
+margin:20px;
+}
+h1{
+font-size:clamp(42px,9vw,75px);
+color:#f2d28d;
+font-weight:normal;
+}
+.hero p{margin:15px;font-size:17px}
+.btn{
+display:inline-block;
+padding:13px 27px;
+background:var(--gold);
+color:#321b16;
+text-decoration:none;
+border-radius:30px;
+margin-top:25px;
+}
+h2{
+color:var(--maroon);
+font-size:32px;
+font-weight:normal;
+margin-bottom:25px;
+}
+.names{
+font-size:38px;
+color:var(--maroon);
+margin:20px;
+}
+.quote{
+font-style:italic;
+line-height:1.9;
+max-width:650px;
+margin:auto;
+}
+.marquee{
+overflow:hidden;
+background:var(--maroon);
+color:#f5d89d;
+padding:16px 0;
+white-space:nowrap;
+}
+.marquee span{
+display:inline-block;
+animation:jalan 18s linear infinite;
+font-size:17px;
+letter-spacing:3px;
+}
+@keyframes jalan{
+from{transform:translateX(100%)}
+to{transform:translateX(-100%)}
+}
+.card{
+max-width:550px;
+margin:20px auto;
+padding:35px 22px;
+border:2px solid var(--gold);
+border-radius:12px;
+background:#fffaf0;
+line-height:2;
+}
+.gallery{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+max-width:700px;
+margin:auto;
+}
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+}
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+footer{
+background:#351b18;
+color:#f5d89d;
+padding:45px 15px;
+text-align:center;
+}
+@media(max-width:500px){
+.gallery img{height:150px}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<div class="ornament">✥ ❖ ✥</div>
+<p>THE WEDDING OF</p>
+<h1>Aldes & Vina</h1>
+<div class="ornament">ᨓ ❖ ᨓ</div>
+<p>15 DESEMBER 2026</p>
+<a href="#undangan" class="btn">BUKA UNDANGAN</a>
+</section>
+
+<div class="marquee">
+<span>❖ DUA HATI SATU JANJI ❖ ALDES & VINA ❖ 15 DESEMBER 2026 ❖</span>
+</div>
+
+<section id="undangan">
+<div class="fade">
+<div class="ornament">✥ ᨓ ✥</div>
+<h2>Dengan Penuh Sukacita</h2>
+<p class="quote">
+"Demikianlah mereka bukan lagi dua, melainkan satu.
+Karena itu, apa yang telah dipersatukan Allah,
+tidak boleh diceraikan manusia."
+<br><br>
+<strong>Matius 19:6</strong>
+</p>
+<div class="names">Aldes & Vina</div>
+<p>Dengan penuh kasih kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam pernikahan kami.</p>
+</div>
+</section>
+
+<section style="background:#eee0c5">
+<div class="fade">
+<h2>Hari Bahagia Kami</h2>
+<div class="card">
+<h3>PEMBERKATAN NIKAH</h3>
+<p>15 Desember 2026</p>
+<p>Pukul 08.00 WITA</p>
+<p>Gedung Gereja GTM Jemaat Moria Tambun</p>
+<hr>
+<h3>RESEPSI PERNIKAHAN</h3>
+<p>15 Desember 2026</p>
+<p>Pukul 10.00 WITA</p>
+<p>Depan Gedung Gereja GTM Jemaat Moria Tambun</p>
+<p>Jalan Bamba Puang Balla, Kelurahan Bambapuang, Kecamatan Balla, Kabupaten Mamasa</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="fade">
+<h2>Galeri Cinta</h2>
+<p>Setiap perjalanan memiliki cerita indah.</p>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Wedding">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600" alt="Wedding">
+<img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600" alt="Wedding">
+<img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=600" alt="Wedding">
+</div>
+</div>
+</section>
+
+<section style="background:#eee0c5">
+<div class="fade">
+<h2>Doa dan Harapan</h2>
+<p class="quote">
+Kiranya kasih Tuhan senantiasa menjadi dasar perjalanan rumah tangga kami.
+Terima kasih atas doa, restu, dan kehadiran keluarga serta sahabat.
+</p>
+<div class="ornament">✥ ❖ ✥</div>
+<div class="names">Aldes & Vina</div>
+</div>
+</section>
+
+<footer>
+<p>Dengan Kasih dan Anugerah Tuhan</p>
+<h2 style="color:#e6c27b;margin:15px">Aldes & Vina</h2>
+<p>15 Desember 2026</p>
+<p style="margin-top:20px">❖ Terima Kasih ❖</p>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+},{threshold:0.15});
+
+document.querySelectorAll('.fade').forEach(el=>{
+observer.observe(el);
+});
+</script>
+
+</body>
+</html>
