@@ -216,6 +216,30 @@ h2 {
   filter: brightness(1.08);
 }
 
+/* ROMANTIC WEDDING TEXT */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background: linear-gradient(90deg,#42151c,#762b35,#42151c);
+  border-top: 2px solid #c69b48;
+  border-bottom: 2px solid #c69b48;
+  padding: 20px 0;
+}
+
+.marquee span {
+  display: inline-block;
+  color: #f4d38d;
+  font-family: Georgia,serif;
+  font-size: 19px;
+  letter-spacing: 4px;
+  animation: jalan 22s linear infinite;
+}
+
+@keyframes jalan {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
 </style>
 </head>
 
