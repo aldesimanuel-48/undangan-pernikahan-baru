@@ -1,48 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wedding Aldes & Vina</title>
-
-/* BINGKAI ORNAMEN WEDDING */
-.card {
-  position: relative;
-  overflow: hidden;
-  border: 4px double #bd9144;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(75,35,20,.12);
-}
-
-.card::before,
-.card::after {
-  position: absolute;
-  color: #bd9144;
-  font-size: 28px;
-  opacity: .8;
-}
-
-.card::before {
-  content: "❖";
-  top: 8px;
-  left: 12px;
-}
-
-.card::after {
-  content: "❖";
-  bottom: 8px;
-  right: 12px;
-}
-
-.ornament {
-  text-shadow: 0 0 12px rgba(198,155,72,.4);
-  animation: kilau 3s ease-in-out infinite alternate;
-}
-
-@keyframes kilau {
-  from { opacity: .55; }
-  to { opacity: 1; }
-}
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -59,9 +21,28 @@ overflow-x:hidden;
 --cream:#f8f0df;
 }
 section{
-padding:90px 22px;
+padding:100px 22px;
 text-align:center;
 position:relative;
+}
+section:not(.hero){
+border-top:2px solid var(--gold);
+border-bottom:2px solid var(--gold);
+background-image:repeating-linear-gradient(
+45deg,transparent,transparent 18px,
+rgba(166,116,48,.045) 19px,transparent 21px
+);
+}
+section:not(.hero)::after{
+content:"✥ ᨓ ❖ ᨓ ✥";
+position:absolute;
+top:20px;
+left:0;
+width:100%;
+color:var(--gold);
+font-size:23px;
+letter-spacing:8px;
+pointer-events:none;
 }
 .hero{
 min-height:100vh;
@@ -74,12 +55,19 @@ url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200');
 background-size:cover;
 background-position:center;
 color:white;
+border:7px double var(--gold);
 }
 .ornament{
 color:var(--gold);
 font-size:30px;
 letter-spacing:8px;
 margin:20px;
+text-shadow:0 0 12px rgba(198,155,72,.4);
+animation:kilau 3s ease-in-out infinite alternate;
+}
+@keyframes kilau{
+from{opacity:.55}
+to{opacity:1}
 }
 h1{
 font-size:clamp(42px,9vw,75px);
@@ -106,6 +94,8 @@ margin-bottom:25px;
 font-size:38px;
 color:var(--maroon);
 margin:20px;
+letter-spacing:2px;
+text-shadow:1px 2px 3px rgba(150,100,30,.2);
 }
 .quote{
 font-style:italic;
@@ -115,29 +105,61 @@ margin:auto;
 }
 .marquee{
 overflow:hidden;
-background:var(--maroon);
+background:linear-gradient(90deg,#42151c,#762b35,#42151c);
 color:#f5d89d;
-padding:16px 0;
+padding:20px 0;
 white-space:nowrap;
+border-top:2px solid var(--gold);
+border-bottom:2px solid var(--gold);
 }
 .marquee span{
 display:inline-block;
-animation:jalan 18s linear infinite;
-font-size:17px;
-letter-spacing:3px;
+animation:jalan 22s linear infinite;
+font-size:19px;
+letter-spacing:4px;
+color:#f4d38d;
 }
 @keyframes jalan{
 from{transform:translateX(100%)}
 to{transform:translateX(-100%)}
 }
 .card{
+position:relative;
+overflow:hidden;
 max-width:550px;
 margin:20px auto;
-padding:35px 22px;
-border:2px solid var(--gold);
-border-radius:12px;
+padding:40px 22px;
+border:4px double #bd9144;
+border-radius:15px;
 background:#fffaf0;
 line-height:2;
+box-shadow:0 8px 25px rgba(75,35,20,.12);
+transition:transform .5s ease,box-shadow .5s ease;
+}
+.card::before,.card::after{
+position:absolute;
+color:#bd9144;
+font-size:28px;
+opacity:.8;
+}
+.card::before{
+content:"❖";
+top:8px;
+left:12px;
+}
+.card::after{
+content:"❖";
+bottom:8px;
+right:12px;
+}
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 25px rgba(100,60,20,.15);
+}
+hr{
+border:0;
+border-top:1px solid var(--gold);
+margin:20px 0;
 }
 .gallery{
 display:grid;
@@ -151,15 +173,21 @@ width:100%;
 height:220px;
 object-fit:cover;
 border-radius:10px;
+transition:transform .7s ease,filter .7s ease;
+}
+.gallery img:hover{
+transform:scale(1.04);
+filter:brightness(1.08);
 }
 .fade{
 opacity:0;
-transform:translateY(40px);
-transition:all 1s ease;
+transform:translateY(55px) scale(.98);
+transition:opacity 1.2s ease,
+transform 1.2s cubic-bezier(.2,.7,.2,1);
 }
 .fade.show{
 opacity:1;
-transform:translateY(0);
+transform:translateY(0) scale(1);
 }
 footer{
 background:#351b18;
@@ -169,116 +197,8 @@ text-align:center;
 }
 @media(max-width:500px){
 .gallery img{height:150px}
+.names{font-size:32px}
 }
-
-/* ORNAMEN TORaja MAMASA */
-section:not(.hero)::after {
-  content: "✥ ᨓ ❖ ᨓ ✥";
-  position: absolute;
-  top: 20px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #b68b43;
-  font-size: 23px;
-  letter-spacing: 8px;
-  opacity: 0.85;
-  pointer-events: none;
-}
-
-section:not(.hero) {
-  border-top: 2px solid #c69b48;
-  border-bottom: 2px solid #c69b48;
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 18px,
-      rgba(166,116,48,0.045) 19px,
-      transparent 21px
-    );
-}
-
-.hero {
-  border: 7px double #c69b48;
-}
-
-.names {
-  text-shadow: 1px 2px 3px rgba(150,100,30,0.2);
-  letter-spacing: 2px;
-}
-
-/* ANIMASI ROMANTIS */
-.fade {
-  opacity: 0;
-  transform: translateY(55px) scale(0.98);
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s cubic-bezier(.2,.7,.2,1);
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-h2 {
-  animation: judulMuncul 1.5s ease both;
-}
-
-@keyframes judulMuncul {
-  from {
-    opacity: 0;
-    letter-spacing: 10px;
-  }
-  to {
-    opacity: 1;
-    letter-spacing: normal;
-  }
-}
-
-.card {
-  transition: transform .5s ease, box-shadow .5s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(100,60,20,.15);
-}
-
-.gallery img {
-  transition: transform .7s ease, filter .7s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.04);
-  filter: brightness(1.08);
-}
-
-/* ROMANTIC WEDDING TEXT */
-.marquee {
-  overflow: hidden;
-  white-space: nowrap;
-  background: linear-gradient(90deg,#42151c,#762b35,#42151c);
-  border-top: 2px solid #c69b48;
-  border-bottom: 2px solid #c69b48;
-  padding: 20px 0;
-}
-
-.marquee span {
-  display: inline-block;
-  color: #f4d38d;
-  font-family: Georgia,serif;
-  font-size: 19px;
-  letter-spacing: 4px;
-  animation: jalan 22s linear infinite;
-}
-
-@keyframes jalan {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
-}
-
 </style>
 </head>
 
