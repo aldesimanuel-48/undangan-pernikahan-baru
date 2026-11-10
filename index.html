@@ -530,6 +530,11 @@ function tampilkanUcapan(data) {
 
   if (!tempat) return;
 
+const jumlah = document.getElementById("jumlahUcapan");
+if (jumlah) {
+  jumlah.textContent = data.length + " Ucapan dan Doa";
+}
+
   tempat.innerHTML = "";
 
   if (!data || data.length === 0) {
