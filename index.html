@@ -5,6 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wedding Aldes & Vina</title>
 
+/* BINGKAI ORNAMEN WEDDING */
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 4px double #bd9144;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(75,35,20,.12);
+}
+
+.card::before,
+.card::after {
+  position: absolute;
+  color: #bd9144;
+  font-size: 28px;
+  opacity: .8;
+}
+
+.card::before {
+  content: "❖";
+  top: 8px;
+  left: 12px;
+}
+
+.card::after {
+  content: "❖";
+  bottom: 8px;
+  right: 12px;
+}
+
+.ornament {
+  text-shadow: 0 0 12px rgba(198,155,72,.4);
+  animation: kilau 3s ease-in-out infinite alternate;
+}
+
+@keyframes kilau {
+  from { opacity: .55; }
+  to { opacity: 1; }
+}
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
