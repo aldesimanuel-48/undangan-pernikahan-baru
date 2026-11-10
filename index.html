@@ -521,6 +521,47 @@ function kirimUcapan() {
   );
 }
 
+function tampilkanUcapan(data) {
+  const tempat = document.getElementById("tempatUcapan");
+
+  if (!tempat) return;
+
+  tempat.innerHTML = "";
+
+  if (!data || data.length === 0) {
+    tempat.innerHTML = "<p style='text-align:center;'>Belum ada ucapan dari tamu.</p>";
+    return;
+  }
+
+  data.reverse().forEach(item => {
+    const kartu = document.createElement("div");
+
+    kartu.style.cssText = "background:white;padding:18px;margin:15px 0;border-radius:12px;border:1px solid #c9a45c;";
+
+    const nama = document.createElement("strong");
+    nama.style.color = "#8b1e35";
+    nama.textContent = item.nama;
+
+    const ucapan = document.createElement("p");
+    ucapan.textContent = item.ucapan;
+
+    kartu.appendChild(nama);
+    kartu.appendChild(ucapan);
+
+    tempat.appendChild(kartu);
+  });
+}
+
+function muatUcapan() {
+  const script = document.createElement("script");
+
+  script.src = "https://script.google.com/macros/s/AKfycbx9IDiBKgRficPq5rGCZO89eX7DX0RZ1-9mTUR3x-hbWRYITAGLY1uUkM3EsuSarqyeDw/exec?callback=tampilkanUcapan";
+
+  document.body.appendChild(script);
+}
+
+muatUcapan();
+
 </script>
 
 </body>
