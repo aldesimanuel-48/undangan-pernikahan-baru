@@ -277,7 +277,25 @@ letter-spacing:8px;
 margin:15px 0;">
 ᨓ ❖ ᨓ
 </div>
-  <p style="margin-top:35px;">Kepada Yth.</p>
+<p style="margin-top:35px;">Kepada Yth.</p>
+
+<h3 id="nama-tamu" style="
+  color:#f5d58a;
+  font-size:22px;
+  margin:10px 0;">
+  Bapak/Ibu/Saudara/i
+</h3>
+
+<p style="
+  color:#fff;
+  font-size:14px;
+  line-height:1.7;
+  max-width:330px;
+  margin:15px auto 25px;">
+  Dengan penuh sukacita dan rasa syukur kepada Tuhan,
+  kami mengundang Bapak/Ibu/Saudara/i untuk berkenan hadir
+  dan menjadi bagian dari momen bahagia pernikahan kami.
+</p>
 
   <button onclick="bukaUndangan()" style="
   padding:14px 30px;
@@ -744,6 +762,14 @@ setInterval(hitungMundur, 1000);
   }
 })();
 </script>
+<script>
+const parameter = new URLSearchParams(window.location.search);
+const namaTamu = parameter.get("to");
 
+if (namaTamu && namaTamu.trim() !== "") {
+  document.getElementById("nama-tamu").textContent =
+    namaTamu.trim().slice(0, 100);
+}
+</script>
 </body>
 </html>
