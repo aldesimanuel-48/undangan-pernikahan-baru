@@ -131,6 +131,44 @@ text-align:center;
 @media(max-width:500px){
 .gallery img{height:150px}
 }
+
+/* ORNAMEN TORaja MAMASA */
+section:not(.hero)::after {
+  content: "✥ ᨓ ❖ ᨓ ✥";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #b68b43;
+  font-size: 23px;
+  letter-spacing: 8px;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+section:not(.hero) {
+  border-top: 2px solid #c69b48;
+  border-bottom: 2px solid #c69b48;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 18px,
+      rgba(166,116,48,0.045) 19px,
+      transparent 21px
+    );
+}
+
+.hero {
+  border: 7px double #c69b48;
+}
+
+.names {
+  text-shadow: 1px 2px 3px rgba(150,100,30,0.2);
+  letter-spacing: 2px;
+}
+
 </style>
 </head>
 
