@@ -601,7 +601,31 @@ function muatUcapan() {
 }
 
 muatUcapan();
+function hitungMundur() {
+  const tujuan = new Date("2026-12-15T08:00:00+08:00").getTime();
+  const sekarang = new Date().getTime();
+  const selisih = tujuan - sekarang;
 
+  if (selisih <= 0) {
+    document.getElementById("countdown").innerHTML = "HARI BAHAGIA TELAH TIBA ❤️";
+    return;
+  }
+
+  document.getElementById("hari").textContent =
+    Math.floor(selisih / (1000 * 60 * 60 * 24));
+
+  document.getElementById("jam").textContent =
+    Math.floor((selisih / (1000 * 60 * 60)) % 24);
+
+  document.getElementById("menit").textContent =
+    Math.floor((selisih / (1000 * 60)) % 60);
+
+  document.getElementById("detik").textContent =
+    Math.floor((selisih / 1000) % 60);
+}
+
+hitungMundur();
+setInterval(hitungMundur, 1000);
 </script>
 
 </body>
