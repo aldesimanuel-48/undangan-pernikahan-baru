@@ -214,7 +214,44 @@ text-align:center;
 </style>
 </head>
 <body class="terkunci">
+<div id="sampul" style="
+position:fixed;
+inset:0;
+z-index:9999;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:25px;
+color:#fff;
+background:linear-gradient(rgba(35,0,10,.55),rgba(35,0,10,.75)),url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200') center/cover no-repeat;
+font-family:Georgia,serif;">
 
+  <p style="letter-spacing:4px;">THE WEDDING OF</p>
+
+  <h1 style="font-size:42px;color:#f5d58a;">
+    Aldes & Vina
+  </h1>
+
+  <p style="letter-spacing:3px;">
+    15 DESEMBER 2026
+  </p>
+
+  <p style="margin-top:35px;">Kepada Yth.</p>
+
+  <button onclick="bukaUndangan()" style="
+  padding:14px 30px;
+  border:1px solid #f5d58a;
+  border-radius:30px;
+  background:#6e1028;
+  color:#fff;
+  font-size:15px;
+  cursor:pointer;">
+    BUKA UNDANGAN
+  </button>
+
+</div>
 <section class="hero">
 <div class="ornament">✥ ❖ ✥</div>
 <p>THE WEDDING OF</p>
@@ -303,6 +340,7 @@ Terima kasih atas doa, restu, dan kehadiran keluarga serta sahabat.
 
 <script>
 function bukaUndangan() {
+ document.getElementById("sampul").style.display = "none"; 
   const musik = document.getElementById("musik");
 
   document.documentElement.classList.remove("terkunci");
