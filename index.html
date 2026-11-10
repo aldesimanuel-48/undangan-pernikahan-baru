@@ -202,20 +202,23 @@ text-align:center;
 </style>
 </head>
 <style>
+html.terkunci,
 body.terkunci {
-  overflow: hidden;
-  height: 100vh;
+  overflow: hidden !important;
+  height: 100% !important;
+  overscroll-behavior: none;
 }
 </style>
 
 <script>
+document.documentElement.classList.add("terkunci");
 document.body.classList.add("terkunci");
 
 function bukaUndangan() {
+  document.documentElement.classList.remove("terkunci");
   document.body.classList.remove("terkunci");
 
-  const musik = document.getElementById("musik");
-  musik.play();
+  document.getElementById("musik").play();
 }
 </script>
 <body>
