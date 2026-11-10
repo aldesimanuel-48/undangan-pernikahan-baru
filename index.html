@@ -8,7 +8,15 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
+html.terkunci,
+body.terkunci{
+  overflow:hidden !important;
+  height:100% !important;
+  overscroll-behavior:none;
+}
 body{
 font-family:Georgia,serif;
 background:#f8f0df;
@@ -83,6 +91,10 @@ color:#321b16;
 text-decoration:none;
 border-radius:30px;
 margin-top:25px;
+border:0;
+cursor:pointer;
+font-family:Georgia,serif;
+font-size:16px;
 }
 h2{
 color:var(--maroon);
@@ -201,27 +213,7 @@ text-align:center;
 }
 </style>
 </head>
-<style>
-html.terkunci,
-body.terkunci {
-  overflow: hidden !important;
-  height: 100% !important;
-  overscroll-behavior: none;
-}
-</style>
-
-<script>
-document.documentElement.classList.add("terkunci");
-document.body.classList.add("terkunci");
-
-function bukaUndangan() {
-  document.documentElement.classList.remove("terkunci");
-  document.body.classList.remove("terkunci");
-
-  document.getElementById("musik").play();
-}
-</script>
-<body>
+<body class="terkunci">
 
 <section class="hero">
 <div class="ornament">✥ ❖ ✥</div>
@@ -229,11 +221,12 @@ function bukaUndangan() {
 <h1>Aldes & Vina</h1>
 <div class="ornament">ᨓ ❖ ᨓ</div>
 <p>15 DESEMBER 2026</p>
-<a href="#undangan" class="btn" onclick="bukaUndangan()">
-  BUKA UNDANGAN
-</a>
 
-<audio id="musik" loop>
+<button class="btn" onclick="bukaUndangan()">
+BUKA UNDANGAN
+</button>
+
+<audio id="musik" loop preload="auto">
   <source src="https://raw.githubusercontent.com/aldesimanuel-48/undangan-pernikahan-baru/main/musik.mp3" type="audio/mpeg">
 </audio>
 </section>
@@ -309,16 +302,33 @@ Terima kasih atas doa, restu, dan kehadiran keluarga serta sahabat.
 </footer>
 
 <script>
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-}
-});
-},{threshold:0.15});
+function bukaUndangan() {
+  const musik = document.getElementById("musik");
 
-document.querySelectorAll('.fade').forEach(el=>{
-observer.observe(el);
+  document.documentElement.classList.remove("terkunci");
+  document.body.classList.remove("terkunci");
+
+  if (musik) {
+    musik.play().catch(function(error) {
+      console.log("Musik belum dapat diputar:", error);
+    });
+  }
+
+  document.getElementById("undangan").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, {threshold: 0.15});
+
+document.querySelectorAll(".fade").forEach(el => {
+  observer.observe(el);
 });
 </script>
 
