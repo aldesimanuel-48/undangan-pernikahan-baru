@@ -525,45 +525,51 @@ function kirimUcapan() {
   );
 }
 
+
 function tampilkanUcapan(data) {
   const tempat = document.getElementById("tempatUcapan");
-
   if (!tempat) return;
 
-const jumlah = document.getElementById("jumlahUcapan");
-if (jumlah) {
-  jumlah.textContent = data.length + " Ucapan dan Doa";
-}
+  const jumlah = document.getElementById("jumlahUcapan");
+
+  if (!Array.isArray(data)) {
+    tempat.innerHTML = "<p>Ucapan belum dapat dimuat.</p>";
+    return;
+  }
+
+  if (jumlah) {
+    jumlah.textContent = data.length + " Ucapan dan Doa";
+  }
 
   tempat.innerHTML = "";
 
-  if (!data || data.length === 0) {
+  if (data.length === 0) {
     tempat.innerHTML = "<p style='text-align:center;'>Belum ada ucapan dari tamu.</p>";
     return;
   }
 
-  data.reverse().forEach(item => {
+  data.slice().reverse().forEach(item => {
     const kartu = document.createElement("div");
 
-    
-kartu.style.cssText = "background:linear-gradient(145deg,#fffdf9,#f8f0e8);padding:22px;margin:18px 0;border:3px double #c9a45c;border-radius:15px;box-shadow:0 4px 12px rgba(91,23,40,.10);position:relative;";
+    kartu.style.cssText =
+      "background:linear-gradient(145deg,#fffdf9,#f8f0e8);padding:22px;margin:18px 0;border:3px double #c9a45c;border-radius:15px;box-shadow:0 4px 12px rgba(91,23,40,.10);";
 
+    const ornamen = document.createElement("div");
+    ornamen.textContent = "ᨓ ❖ ᨓ";
+    ornamen.style.cssText =
+      "text-align:center;color:#c9a45c;font-size:23px;margin-bottom:12px;letter-spacing:5px;";
 
     const nama = document.createElement("strong");
     nama.style.color = "#8b1e35";
-    nama.textContent = item.nama;
+    nama.textContent = item.nama || "Tamu Undangan";
 
     const ucapan = document.createElement("p");
-    ucapan.textContent = item.ucapan;
+    ucapan.style.cssText = "color:#5b1728;line-height:1.7;";
+    ucapan.textContent = item.ucapan || "";
 
-const ornamen = document.createElement("div");
-ornamen.textContent = "ᨓ ❖ ᨓ";
-ornamen.style.cssText = "text-align:center;color:#c9a45c;font-size:23px;margin-bottom:12px;letter-spacing:5px;";
-kartu.appendChild(ornamen);
-
+    kartu.appendChild(ornamen);
     kartu.appendChild(nama);
     kartu.appendChild(ucapan);
-
     tempat.appendChild(kartu);
   });
 }
