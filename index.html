@@ -684,5 +684,66 @@ hitungMundur();
 setInterval(hitungMundur, 1000);
 </script>
 
+<style>
+#bunga-terbang {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.bunga-jatuh {
+  position: absolute;
+  top: -50px;
+  animation: bungaTurun linear infinite;
+  opacity: .85;
+  filter: drop-shadow(0 2px 3px rgba(104,31,41,.15));
+}
+
+@keyframes bungaTurun {
+  0% {
+    transform: translate3d(0,-50px,0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: .9; }
+  50% {
+    transform: translate3d(var(--geser),50vh,0) rotate(180deg);
+  }
+  100% {
+    transform: translate3d(calc(var(--geser) * -1),110vh,0) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+
+<div id="bunga-terbang"></div>
+
+<script>
+(function() {
+  const wadah = document.getElementById("bunga-terbang");
+  if (!wadah) return;
+
+  const bunga = ["🌸","🌺","🌼","🌷","🍃"];
+
+  for (let i = 0; i < 22; i++) {
+    const kelopak = document.createElement("span");
+
+    kelopak.className = "bunga-jatuh";
+    kelopak.textContent = bunga[Math.floor(Math.random() * bunga.length)];
+
+    kelopak.style.left = Math.random() * 100 + "%";
+    kelopak.style.fontSize = (15 + Math.random() * 15) + "px";
+    kelopak.style.animationDuration = (9 + Math.random() * 12) + "s";
+    kelopak.style.animationDelay = (-Math.random() * 20) + "s";
+    kelopak.style.setProperty("--geser", (30 + Math.random() * 80) + "px");
+
+    wadah.appendChild(kelopak);
+  }
+})();
+</script>
+
 </body>
 </html>
