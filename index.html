@@ -459,7 +459,8 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".fade").forEach(el => {
   observer.observe(el);
 });
-  function kirimUcapan() {
+ 
+function kirimUcapan() {
   const nama = document.getElementById("namaTamu").value.trim();
   const ucapan = document.getElementById("ucapanTamu").value.trim();
 
@@ -467,6 +468,32 @@ document.querySelectorAll(".fade").forEach(el => {
     alert("Silakan isi nama dan ucapan terlebih dahulu.");
     return;
   }
+
+  const url = "https://script.google.com/macros/s/AKfycbx9IDiBKgRficPq5rGCZO89eX7DX0RZ1-9mTUR3x-hbWRYITAGLY1uUkM3EsuSarqyeDw/exec";
+
+  const data = new URLSearchParams();
+  data.append("nama", nama);
+  data.append("ucapan", ucapan);
+
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    body: data
+  });
+
+  const pesan = "Shalom Aldes & Vina ❤️\n\nNama: " + nama +
+    "\nUcapan dan Doa: " + ucapan;
+
+  const nomor = "6281354632767";
+
+  window.open(
+    "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan),
+    "_blank"
+  );
+
+  alert("Ucapan sedang dikirim dan disimpan. Silakan lanjutkan mengirim melalui WhatsApp.");
+}
+
 
   const pesan = "Shalom Aldes & Vina ❤️\n\nNama: " + nama +
     "\nUcapan dan Doa: " + ucapan;
