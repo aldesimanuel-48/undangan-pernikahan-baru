@@ -201,7 +201,23 @@ text-align:center;
 }
 </style>
 </head>
+<style>
+body.terkunci {
+  overflow: hidden;
+  height: 100vh;
+}
+</style>
 
+<script>
+document.body.classList.add("terkunci");
+
+function bukaUndangan() {
+  document.body.classList.remove("terkunci");
+
+  const musik = document.getElementById("musik");
+  musik.play();
+}
+</script>
 <body>
 
 <section class="hero">
@@ -210,7 +226,7 @@ text-align:center;
 <h1>Aldes & Vina</h1>
 <div class="ornament">ᨓ ❖ ᨓ</div>
 <p>15 DESEMBER 2026</p>
-<a href="#undangan" class="btn" onclick="document.getElementById('musik').play()">
+<a href="#undangan" class="btn" onclick="bukaUndangan()">
   BUKA UNDANGAN
 </a>
 
