@@ -313,6 +313,34 @@ margin:15px 0;">
 <span>❖ DUA HATI SATU JANJI ❖ ALDES & VINA ❖ 15 DESEMBER 2026 ❖</span>
 </div>
 
+<div class="countdown-section fade">
+  <div class="ornament">✥ ᨓ ✥</div>
+  <h2>Menuju Hari Bahagia</h2>
+  <p>Aldes & Vina</p>
+
+  <div id="countdown" class="countdown">
+    <div class="kotak-waktu">
+      <span id="hari">0</span>
+      <small>Hari</small>
+    </div>
+    <div class="kotak-waktu">
+      <span id="jam">0</span>
+      <small>Jam</small>
+    </div>
+    <div class="kotak-waktu">
+      <span id="menit">0</span>
+      <small>Menit</small>
+    </div>
+    <div class="kotak-waktu">
+      <span id="detik">0</span>
+      <small>Detik</small>
+    </div>
+  </div>
+
+  <p class="quote">15 Desember 2026 · 08.00 WITA</p>
+  <div class="ornament">✥ ❖ ✥</div>
+</div>
+
 <section id="undangan">
 <div class="fade">
 <div class="ornament">✥ ᨓ ✥</div>
@@ -739,6 +767,41 @@ setInterval(hitungMundur, 1000);
     opacity: 0;
   }
 }
+
+.countdown-section {
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 22px 0;
+}
+
+.kotak-waktu {
+  background: linear-gradient(145deg,#fffaf0,#f2dfc5);
+  border: 2px double #c69b48;
+  border-radius: 15px;
+  width: 72px;
+  padding: 12px 5px;
+  box-shadow: 0 5px 12px rgba(91,23,40,.12);
+}
+
+.kotak-waktu span {
+  display: block;
+  font-size: 27px;
+  font-weight: bold;
+  color: #681f29;
+}
+
+.kotak-waktu small {
+  color: #8b6935;
+  font-size: 12px;
+}
+
 </style>
 
 <div id="bunga-terbang"></div>
@@ -765,6 +828,34 @@ setInterval(hitungMundur, 1000);
     wadah.appendChild(kelopak);
   }
 })();
+  
+<script>
+function updateCountdown() {
+  const tujuan = new Date("2026-12-15T08:00:00+08:00").getTime();
+  const sekarang = new Date().getTime();
+  const selisih = tujuan - sekarang;
+
+  if (selisih <= 0) {
+    document.getElementById("countdown").innerHTML =
+      "Hari Bahagia Telah Tiba ❤️";
+    return;
+  }
+
+  const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+  const jam = Math.floor((selisih / (1000 * 60 * 60)) % 24);
+  const menit = Math.floor((selisih / (1000 * 60)) % 60);
+  const detik = Math.floor((selisih / 1000) % 60);
+
+  document.getElementById("hari").textContent = hari;
+  document.getElementById("jam").textContent = jam;
+  document.getElementById("menit").textContent = menit;
+  document.getElementById("detik").textContent = detik;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
 </script>
 <script>
 const parameter = new URLSearchParams(window.location.search);
