@@ -276,6 +276,35 @@ text-align:center;
 body {
     overflow: auto !important;
 }
+
+/* BACKGROUND FOTO PREWEDDING COUNTDOWN */
+.countdown-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.countdown-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      rgba(248, 240, 223, 0.72),
+      rgba(248, 240, 223, 0.72)
+    ),
+    url("galeri7.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.countdown-section > * {
+  position: relative;
+  z-index: 1;
+}
   
 </style>
 </head>
