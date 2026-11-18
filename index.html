@@ -246,6 +246,26 @@ text-align:center;
 body {
     overflow: auto !important;
 }
+  
+/* WATERMARK FOTO ALDES & VINA */
+#undangan {
+  position: relative;
+  isolation: isolate;
+}
+
+#undangan::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("galeri7.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 85% auto;
+  opacity: 0.12;
+  z-index: -1;
+  pointer-events: none;
+}
+
 </style>
 </head>
 <body>
