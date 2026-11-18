@@ -277,25 +277,6 @@ body {
     overflow: auto !important;
 }
   
-/* WATERMARK FOTO ALDES & VINA */
-#undangan {
-  position: relative;
-  isolation: isolate;
-}
-
-#undangan::before {
-content: "";
-position: absolute;
-inset: 0;
-background-image: url("galeri7.jpeg");
-background-repeat: no-repeat;
-background-position: center center;
-background-size: 85% auto;
-opacity: 0.12;
-z-index: -1;
-pointer-events: none;
-}
-
 </style>
 </head>
 <body>
@@ -363,7 +344,7 @@ margin:15px 0;">
 <span>❖ DUA HATI SATU JANJI ❖ ALDES & VINA ❖ 15 DESEMBER 2026 ❖</span>
 </div>
 
-<div class="countdown-section fade">
+<div id="awal-undangan" class="countdown-section fade">
   <div class="ornament">✥ ᨓ ✥</div>
   <h2>Menuju Hari Bahagia</h2>
   <p>Aldes & Vina</p>
@@ -629,10 +610,10 @@ function bukaUndangan() {
       console.log("Musik belum dapat diputar:", error);
     });
   }
-
-  document.getElementById("undangan").scrollIntoView({
-    behavior: "smooth"
-  });
+document.getElementById("awal-undangan").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+});
 }
 
 const observer = new IntersectionObserver(entries => {
@@ -855,6 +836,7 @@ setInterval(hitungMundur, 1000);
 
 <div id="bunga-terbang"></div>
 
+
 <script>
 (function() {
   const wadah = document.getElementById("bunga-terbang");
@@ -877,7 +859,8 @@ setInterval(hitungMundur, 1000);
     wadah.appendChild(kelopak);
   }
 })();
-  
+</script>
+
 <script>
 function updateCountdown() {
   const tujuan = new Date("2026-12-15T08:00:00+08:00").getTime();
@@ -905,7 +888,6 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
 
-</script>
 <script>
 const parameter = new URLSearchParams(window.location.search);
 const namaTamu = parameter.get("to");
@@ -915,5 +897,6 @@ if (namaTamu && namaTamu.trim() !== "") {
     namaTamu.trim().slice(0, 100);
 }
 </script>
+
 </body>
 </html>
