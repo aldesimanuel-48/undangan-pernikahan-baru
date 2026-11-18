@@ -960,20 +960,5 @@ if (namaTamu && namaTamu.trim() !== "") {
 const bagianSalam = document.getElementById("bagian-salam");
 const hiasanSalam = document.getElementById("hiasan-salam");
 
-const pengamatSalam = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      hiasanSalam.classList.add("aktif");
-    } else {
-      hiasanSalam.classList.remove("aktif");
-    }
-  });
-}, {
-  threshold: 0.05
-});
-
-pengamatSalam.observe(bagianSalam);
-</script>
-
 </body>
 </html>
