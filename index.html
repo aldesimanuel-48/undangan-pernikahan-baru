@@ -405,6 +405,9 @@ margin:15px 0;">
 <div class="fade">
 <div class="ornament">✥ ᨓ ✥</div>
 
+
+<section id="bagian-salam">
+
 <h2>Salam Sejahtera</h2>
 
 <p class="quote">
@@ -448,6 +451,9 @@ tidak boleh diceraikan manusia."
 <br><br>
 <strong>Matius 19:6</strong>
 </p>
+
+</section>
+
 
 <div class="ornament">✥ ❖ ✥</div>
 
@@ -860,6 +866,24 @@ setInterval(hitungMundur, 1000);
   font-size: 12px;
 }
 
+/* ORNAMEN BACKGROUND SALAM SEJAHTERA */
+#hiasan-salam {
+  position: fixed;
+  top: 15px;
+  left: 10px;
+  width: 125px;
+  height: auto;
+  opacity: 0;
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Muncul ketika bagian salam aktif */
+#hiasan-salam.aktif {
+  opacity: 0.35;
+}
+
 </style>
 
 <div id="bunga-terbang"></div>
@@ -924,6 +948,31 @@ if (namaTamu && namaTamu.trim() !== "") {
   document.getElementById("nama-tamu").textContent =
     namaTamu.trim().slice(0, 100);
 }
+</script>
+
+<img
+  id="hiasan-salam"
+  src="https://aldesimanuel-48.github.io/undangan-pernikahan-baru/bacgroun%201.png"
+  alt=""
+>
+
+<script>
+const bagianSalam = document.getElementById("bagian-salam");
+const hiasanSalam = document.getElementById("hiasan-salam");
+
+const pengamatSalam = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      hiasanSalam.classList.add("aktif");
+    } else {
+      hiasanSalam.classList.remove("aktif");
+    }
+  });
+}, {
+  threshold: 0.05
+});
+
+pengamatSalam.observe(bagianSalam);
 </script>
 
 </body>
