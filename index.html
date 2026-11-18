@@ -48,7 +48,12 @@ section:not(.hero){
   );
 }
 
-section:not(.hero)::before{
+section.watermark{
+  position: relative;
+  isolation: isolate;
+}
+
+section.watermark::before{
   content: "";
   position: absolute;
   inset: 0;
@@ -474,8 +479,7 @@ BUKA GOOGLE MAPS
 </div>
 
 </section>
-
-<section>
+<section class="watermark">
 <div class="fade">
 <h2>Galeri Cinta</h2>
 <p>Setiap perjalanan memiliki cerita indah.</p>
@@ -845,25 +849,6 @@ setInterval(hitungMundur, 1000);
 .kotak-waktu small {
   color: #8b6935;
   font-size: 12px;
-}
-
-/* WATERMARK FOTO ALDES & VINA */
-#undangan {
-  position: relative;
-  isolation: isolate;
-}
-
-#undangan::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("galeri7.jpg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 85% auto;
-  opacity: 0.12;
-  z-index: -1;
-  pointer-events: none;
 }
 
 </style>
